@@ -9,10 +9,23 @@ export const fetchTopAlbums = async () => {
   } catch (e) { console.error(e); return []; }
 };
 
-// ADD THIS NEW EXPORT:
 export const fetchNewAlbums = async () => {
   try {
     const response = await axios.get(`${BACKEND_ENDPOINT}/albums/new`);
+    return response.data;
+  } catch (e) { console.error(e); return []; }
+};
+
+export const fetchSongs = async () => {
+  try {
+    const response = await axios.get(`${BACKEND_ENDPOINT}/songs`);
+    return response.data;
+  } catch (e) { console.error(e); return []; }
+};
+
+export const fetchFilters = async () => {
+  try {
+    const response = await axios.get(`${BACKEND_ENDPOINT}/genres`);
     return response.data;
   } catch (e) { console.error(e); return []; }
 };

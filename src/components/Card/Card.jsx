@@ -9,7 +9,11 @@ function Card({ data, type }) {
         <img src={data.image} alt="album" loading="lazy" />
         <div className={styles.banner}>
           <Chip
-            label={`${data.follows} Follows`}
+            label={
+              type === "album"
+                ? `${data.follows} Follows`
+                : `${data.likes} Likes`
+            }
             size="small"
             className={styles.chip}
           />
