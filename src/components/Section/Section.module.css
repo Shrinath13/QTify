@@ -25,4 +25,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
   gap: 40px;
+  width: 100%;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
 }

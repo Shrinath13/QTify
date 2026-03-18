@@ -13,11 +13,14 @@ const Section = ({ title, data, type, filterSource }) => {
     setCarouselToggle(!carouselToggle);
   };
 
-  // Logic to filter the data
   const cardsToRender = data.filter((item) => {
     if (type === "album" || selectedFilterIndex === 0) return true;
-    const currentFilterLabel = filterSource[selectedFilterIndex]?.label;
-    return item.genre.label === currentFilterLabel;
+    
+    if (filterSource && filterSource[selectedFilterIndex]) {
+      const currentFilterLabel = filterSource[selectedFilterIndex].label;
+      return item.genre.label === currentFilterLabel;
+    }
+    return true;
   });
 
   return (
@@ -26,12 +29,11 @@ const Section = ({ title, data, type, filterSource }) => {
         <h3>{title}</h3>
         {type === "album" && (
           <h4 className={styles.toggleText} onClick={handleToggle}>
-            {carouselToggle ? "Show All" : "Collapse"}
+            {!carouselToggle ? "Collapse" : "Show All"}
           </h4>
         )}
       </div>
 
-      {/* Show Filters only for songs */ }
       {type === "song" && (
         <Filters 
           filters={filterSource} 
