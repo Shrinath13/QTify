@@ -1,6 +1,8 @@
-import './App.css';
-import Navbar from "./components/Navbar/Navbar.jsx"
-import Hero from "./components/Hero/Hero.jsx";
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import Section from "./components/Section/Section";
+import { fetchTopAlbums } from "./api/api";
 
 const dummyData = [
   { title: "New Bollywood", slug: "new-bollywood", songs: [{ artists: ["Arijit Singh"] }] },
@@ -8,11 +10,23 @@ const dummyData = [
 ];
 
 function App() {
+  const [topAlbumsData, setTopAlbumsData] = useState([]);
+
+  const generateData = async () => {
+    const data = await fetchTopAlbums();
+    setTopAlbumsData(data);
+  };
+
+  useEffect(() => {
+    generateData();
+  }, []);
+
   return (
     <>
-    <div>
-      <Navbar searchData={dummyData} />
+    <div className="App">
+      <Navbar />
       <Hero />
+      <Section title="Top Albums" data={topAlbumsData} />
     </div>
     </>
   );

@@ -1,0 +1,28 @@
+.sectionWrapper {
+  padding: 20px 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h3 {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.toggleText {
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
+  gap: 40px;
+}
