@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar/Navbar.jsx"
+import Hero from "./components/Hero/Hero.jsx";
+
+const dummyData = [
+  { title: "New Bollywood", slug: "new-bollywood", songs: [{ artists: ["Arijit Singh"] }] },
+  { title: "New English", slug: "new-english", songs: [{ artists: ["Taylor Swift"] }] }
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+      <Navbar searchData={dummyData} />
+      <Hero />
     </div>
+    </>
   );
 }
 
